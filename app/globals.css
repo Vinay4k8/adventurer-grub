@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Ubuntu:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.font-pacifico{
+
+  font-family: 'Pacifico', cursive;
+}
+.font-ubuntu ,body{
+
+  font-family: 'Ubuntu', sans-serif;
+}
+
+@layer components{
+#reactQuillC h1{
+  @apply text-5xl py-10 font-bold underline decoration-yellow-400
+}
+#reactQuillC h2{
+  @apply text-4xl py-10 font-bold underline decoration-yellow-400
+}
+#reactQuillC h3{
+  @apply text-3xl py-10 font-bold
+}
+#reactQuillC h4{
+  @apply text-2xl py-10 font-bold
+}
+#reactQuillC p{
+  @apply border-l-green-400 border-l-4 pl-5 py-5 my-5 text-lg p-3
+}
+#reactQuillC ol{
+  @apply p-3 mt-11 list-decimal text-lg
+}
+#reactQuillC ul{
+  @apply ml-10 py-5 list-disc space-y-5 text-lg p-3
+}
+#reactQuillC a{
+  @apply underline decoration-green-400 hover:decoration-black
+}
+#reactQuillC b{
+  @apply font-bold text-lg my-1 p-2
+}
+#reactQuillC i{
+  @apply italic text-lg my-1 p-2
+}
+}
