@@ -4,17 +4,18 @@ import Link from 'next/link'
 
 const Post = ({blog:{_id,title,content,summary,banner,tags,author}}) => {
   return (<Link href={"/post/"+_id}> 
-    <div className='group rounded-md shadow-md p-3'>
+    <div className='group rounded-md shadow-lg p-3'>
         <div className='  relative group-hover:scale-105 mb-3 transition-all duration-150 ease-in-out'>
             <img className='mx-auto h-[18rem]' 
             src={banner} />
             <div className='absolute bottom-0 backdrop-filter backdrop-blur-md bg-opacity-10 bg-white w-full h-auto p-4 flex justify-between items-center '>
-              <div className=' uppercase font-semibold tracking-widest  rounded-full px-4 py-2 flex gap-3'>
-                <img className='w-6 h-6 rounded-full' src={author.image} /> @{author.name}
+              <div className=' uppercase font-semibold tracking-widest text-sm sm:text-base rounded-full px-4 py-2 flex gap-3'>
+                <img className='w-6 h-6 rounded-full' src={author.image} /><span className='hidden sm:inline-block'> @{author.name}
+                  </span>
               </div>
               <div className='flex gap-2'>
              {tags.slice(0,2).map((tag,i)=>{
-              return <span key={i} className='bg-green-400 text-black font-semibold text-md py-2 px-4 rounded-full'>
+              return <span key={i} className='bg-green-400 text-sm sm:text-base text-black font-semibold text-md py-2 px-4 rounded-full'>
               {tag}
             </span>
              }) }

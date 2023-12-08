@@ -31,13 +31,13 @@ if(session?.user){
            </div>
            <div className='my-5'>
             <h1 className='text-3xl my-3 uppercase underline decoration-green-400'>Your Blog's</h1>
-            <div>
-                {!blogs && blogs.length==0?<div className='text-2xl font-semibold'>No Blog's are created Yet</div>:<div className='w-full gap-x-16 grid md:grid-cols-2 grid-cols-1 gap-y-6 ' >
+            {blogs ?<div>
+                { blogs.length==0?<div className='text-2xl font-semibold'>No Blog's are created Yet</div>:<div className='w-full gap-x-16 grid md:grid-cols-2 grid-cols-1 gap-y-6 ' >
                     {blogs.map((blog,i)=>{
                         return <Post blog={blog} key={i}/>
                     })}
                     </div>}
-            </div>
+            </div>:<div>No Blog's are created Yet</div>}
            </div>
     </div>
   )}else{
