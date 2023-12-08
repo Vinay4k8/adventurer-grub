@@ -1,5 +1,5 @@
 import { PhotoIcon } from '@heroicons/react/24/outline';
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import { storage } from '@/lib/firebase';
@@ -37,7 +37,8 @@ const EditPost = ({blog}) => {
   const [summary,setSummary]=useState(blog.summary);
   const [tags,setTags]=useState(blog.tags);
   const [tag,setTag]=useState("");
-  
+  const [mountStatus,setMountStatus]=useState(false)
+
   const {editBlog,loading,setLoading}=useContext(blogContext);
   const router=useRouter();
  
@@ -85,8 +86,11 @@ const EditPost = ({blog}) => {
  
   setTags(newTags)
  }
- if (typeof window != undefined) {
-  return (
+ useEffect(()=>{
+  setMountStatus(true)
+ },[])
+
+  return (mountStatus &&
     <div className=''>
         <div>
         <input type='text' placeholder="Enter tilte" className='text-gray-400 w-full p-3 outline-none my-4 shadow-md' value={title} onChange={(e)=>{setTitle(e.target.value)}} />
@@ -137,7 +141,7 @@ const EditPost = ({blog}) => {
         </button>
           </div>
     </div>
-  )}
+  )
 }
 
 export default EditPost

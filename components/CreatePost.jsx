@@ -1,5 +1,5 @@
 import { PhotoIcon } from '@heroicons/react/24/outline';
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import { storage } from '@/lib/firebase';
@@ -37,7 +37,7 @@ const CreatePost = () => {
   const [tag,setTag]=useState("");
   const {postBlog,loading,setLoading}=useContext(blogContext);
   const router=useRouter();
-
+ const [mountStatus,setMountStatus]=useState(false)
 
 
   const UploadPost=async()=>{
@@ -76,8 +76,11 @@ const CreatePost = () => {
     return newTags
   })
  }
-if(typeof window != undefined)
-  return (
+ useEffect(()=>{
+  setMountStatus(true)
+ },[])
+
+  return (mountStatus &&
     <div className='text-gray-500 p-3'>
         <div>
           Title:
