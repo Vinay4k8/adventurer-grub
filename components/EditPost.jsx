@@ -89,7 +89,7 @@ const EditPost = ({blog}) => {
  useEffect(()=>{
   setMountStatus(true)
  },[])
-
+ if (typeof window !== 'undefined')
   return (mountStatus &&
     <div className=''>
         <div>

@@ -79,7 +79,7 @@ const CreatePost = () => {
  useEffect(()=>{
   setMountStatus(true)
  },[])
-
+ if (typeof window !== 'undefined')
   return (mountStatus &&
     <div className='text-gray-500 p-3'>
         <div>
